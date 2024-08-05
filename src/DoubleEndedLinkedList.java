@@ -43,15 +43,23 @@ public class DoubleEndedLinkedList {
         System.out.println();
     }
 
-    // Node class definition
-//    private class Node {
-//        private int data;
-//        private Node next;
-//
-//        public Node(int data) {
-//            this.data = data;
-//        }
-//    }
+    public Node deleteFirst(){
+        if(isEmpty()){
+            return null;
+        }
+
+        Node temp = first;
+
+        if(first.next == null){
+            last =null;
+        }
+
+        first = first.next;
+
+        return temp;
+    }
+
+
 
     public static void main(String[] args) {
         DoubleEndedLinkedList list = new DoubleEndedLinkedList();
@@ -59,5 +67,7 @@ public class DoubleEndedLinkedList {
         list.insertLast(20);
         list.insertFirst(5);
         list.displayList(); // Output should be: 5 10 20
+        list.deleteFirst();
+        list.displayList();
     }
 }
