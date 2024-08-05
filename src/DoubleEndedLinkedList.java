@@ -81,6 +81,42 @@ public class DoubleEndedLinkedList {
 
     }
 
+    public void insertAfter(int data, int afterKey){
+        Node newNode = new Node(data);
+
+        Node current = first;
+
+        while (current!=last){
+            if(current.iData!=afterKey){
+                current = current.next;
+            }else {
+                break;
+            }
+
+        }
+
+        newNode.next = current.next;
+        current.next = newNode;
+
+    }
+
+    public void deleteMiddle(int data){
+        Node current = first;
+        Node previousCurrent = first;
+
+        while(current!=last){
+            if(current.iData != data){
+                previousCurrent = current;
+                current=current.next;
+            }else {
+                break;
+            }
+        }
+
+        previousCurrent.next = current.next;
+
+    }
+
 
     public static void main(String[] args) {
         DoubleEndedLinkedList list = new DoubleEndedLinkedList();
@@ -90,9 +126,18 @@ public class DoubleEndedLinkedList {
         list.insertFirst(35);
         list.insertFirst(25);
         list.insertFirst(15);
-
         list.displayList(); // Output should be: 5 10 20
+
         list.deleteFirst();
+        list.displayList();
+
+        list.deleteLast();
+        list.displayList();
+
+        list.insertAfter(100,5);
+        list.displayList();
+
+        list.deleteMiddle(100);
         list.displayList();
     }
 }
