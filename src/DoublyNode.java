@@ -1,7 +1,7 @@
 public class DoublyNode {
-    private int iData;
-    private DoublyNode next;
-    private DoublyNode previous;
+     int iData;
+     DoublyNode next;
+     DoublyNode previous;
 
 
     //constructor for the very first node
